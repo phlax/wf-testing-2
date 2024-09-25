@@ -20,6 +20,7 @@ concurrency:
 
 jobs:
   request:
+    runs-on: ubuntu-24.04
     steps:
     - run: |
         echo "REQUESTED"

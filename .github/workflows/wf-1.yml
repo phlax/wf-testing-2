@@ -1,0 +1,26 @@
+name: WF/1
+
+permissions:
+  contents: read
+
+on:
+  workflow_run:
+    workflows:
+    - WF/0
+    types:
+    - completed
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}-${{ github.workflow }}
+  cancel-in-progress: true
+
+env:
+  CI_DEBUG: ${{ vars.CI_DEBUG }}
+
+
+jobs:
+  wf-0:
+    runs-on: ubuntu-24.04
+    steps:
+    - run: |
+        echo "WF 1"

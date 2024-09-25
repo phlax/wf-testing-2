@@ -1,4 +1,4 @@
-name: WF/1
+name: WF/2
 
 permissions:
   contents: read
@@ -6,7 +6,7 @@ permissions:
 on:
   workflow_run:
     workflows:
-    - WF/0
+    - WF/1
     types:
     - completed
 
@@ -19,8 +19,8 @@ env:
 
 
 jobs:
-  wf-1:
+  wf-2:
     runs-on: ubuntu-24.04
     steps:
     - run: |
-        echo "WF 1"
+        echo "WF 2"
